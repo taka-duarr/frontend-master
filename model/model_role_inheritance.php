@@ -9,7 +9,7 @@ class Manusia {
         $this->nik = $nik;  
         $this->nama = $nama;
     }
-    public function cetakMahasiswa(){
+    public function cetak(){
         echo "Nik: " . $this->nik . "<br>";
         echo "Nama: " . $this->nama . "<br>";
     }
@@ -24,13 +24,13 @@ class Mahasiswa extends Manusia {
     }
 
     public function cetakMahasiswa(){
-        parent::cetakMahasiswa();
+        parent::cetak();
         echo "NPM: " . $this->npm . "<br>";
     }
 }
 
-$obj = new Mahasiswa(1, "tokisaki kurumi", "06.2021.12345");
-$obj->cetakMahasiswa();
+// $obj = new Mahasiswa(1, "tokisaki kurumi", "06.2021.12345");
+// $obj->cetakMahasiswa();
 
 
 

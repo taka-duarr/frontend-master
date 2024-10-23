@@ -21,18 +21,18 @@
         <div class="flex-1 p-8">
             <!-- Your main content goes here -->
             <?php
-            foreach ($obj_role as $role) {
-                echo "id role : ".$role->id_peran;
-                echo "<br>";
-                echo "role name : ".$role->nama_peran;
-                echo "<br>";
-                echo "role description : ".$role->desc_peran;
-                echo "<br>";
-                echo "role status : ".$role->status_peran;
-                echo "<br>";
-                echo "role gaji : ".$role->gaji;
-                echo "<br>";
-            }
+            // foreach ($obj_role as $role) {
+            //     echo "id role : ".$role->id_peran;
+            //     echo "<br>";
+            //     echo "role name : ".$role->nama_peran;
+            //     echo "<br>";
+            //     echo "role description : ".$role->desc_peran;
+            //     echo "<br>";
+            //     echo "role status : ".$role->status_peran;
+            //     echo "<br>";
+            //     echo "role gaji : ".$role->gaji;
+            //     echo "<br>";
+            // }
             ?>
         </div>
     </div>
