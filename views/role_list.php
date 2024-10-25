@@ -5,8 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>List Role</title>
     <script src="https://cdn.tailwindcss.com"></script>
+
 </head>
 <body class="bg-gray-100 font-sans leading-normal tracking-normal">
+
 
 <!-- Navbar -->
 <?php include 'includes/navbar.php'; ?>
@@ -25,6 +27,9 @@
                 <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
                     <a href="views/role_input.php">Insert New Role</a>
                 </button>
+                    <!-- notifikasi peringatan -->
+              
+
             </div>
 
             <!-- Roles Table -->
@@ -54,14 +59,21 @@
                                 
                         <td class="w-1/6 py-3 px-4">
                             <button class="bg-green-500 hover:bg-green-700 text-white font-bold py-1 px-2 rounded mr-2">
-                                <a href="#">Update</a>
+                                <a href="index.php?modul=role&fitur=edit&id_peran=<?php echo $role->id_peran ?>">Update</a>
                             </button>
                             <button class="bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-2 rounded mr-2">
-                                <a href="#">Delete</a>
+                                <a href="index.php?modul=role&fitur=delete&id_peran=<?php echo $role->id_peran ?>">Delete</a>
                             </button>
                         </td>
                         <?php } ?>
                     </tr>
+
+
+
+                
+
+
+
 
                     <!-- <tr class="text-center">
                         <td class="py-3 px-4 text-blue-600">2</td>

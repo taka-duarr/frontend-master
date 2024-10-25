@@ -48,13 +48,39 @@ switch ($modul) {
             $status_peran = $_POST['status_peran'];
             $gaji = $_POST['gaji'];
             $obj_role->addRole($nama_peran, $desc_peran, $status_peran, $gaji);
+            header("Location: index.php?modul=role&success=true");
+            break;
+
+            case 'delete' :
+            // Ambil id_peran dari parameter GET
+            $id_peran = $_GET['id_peran'];
+            $obj_role->deleteRole($id_peran);
             header("Location: index.php?modul=role");
-                break;
-                default : 
-        $Roles = $obj_role->getRoles();
-        include 'views/role_list.php';
+            break;
+
+            case 'edit' :
+            $id_peran = $_GET['id_peran'];
+            $obj_role = $obj_role->getRoleById($id_peran);
+            include 'views/role_update.php';
+            break;
+
+            case 'update' :
+            $id_peran = $_POST['id_peran'];
+            $nama_peran = $_POST['nama_peran'];
+            $desc_peran = $_POST['desc_peran'];
+            $status_peran = $_POST['status_peran'];
+            $gaji = $_POST['gaji'];
+            $obj_role->updateRole($id_peran, $nama_peran, $desc_peran, $status_peran, $gaji);
+            header("Location: index.php?modul=role");
+            break;
+
+
+            default : 
+            $Roles = $obj_role->getRoles();
+            include 'views/role_list.php';
             }
-        break;
+            break;
+
             
     }
 ?>
