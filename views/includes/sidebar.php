@@ -16,7 +16,7 @@
         </li>
         <li class="group">
             <div class="px-4 py-2 hover:bg-gray-700 cursor-pointer group-hover:bg-gray-700">
-                <a href=#>Master Data User</a>
+                <a href="index.php?modul=user">Master Data User</a>
             </div>
 <!--            <ul class="ml-4 space-y-1 hidden group-hover:block">-->
 <!--                <li class="px-4 py-2 hover:bg-gray-700 cursor-pointer">List</li>-->
@@ -26,7 +26,7 @@
 <!--            </ul>-->
         </li>
         <li class="group">
-            <a href="index_barang.php">
+            <a href="index.php?modul=barang">
             <div class="px-4 py-2 hover:bg-gray-700 cursor-pointer group-hover:bg-gray-700">Master Data Barang</div>
             </a>
 <!--            <ul class="ml-4 space-y-1 hidden group-hover:block">-->

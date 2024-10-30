@@ -24,7 +24,7 @@
                 <!-- Button to Insert New Role -->
                 <div class="mb-4">
                     <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-                        <a href="MainEntryPoint.php?modul=user&fitur=add">Insert New User</a>
+                        <a href="index.php?modul=user&fitur=input">Insert New User</a>
                     </button>
                 </div>
 
@@ -38,35 +38,41 @@
                             <th class="w-1/4 py-3 px-4 uppercase font-semibold text-sm">User Name</th>
                             <th class="w-1/3 py-3 px-4 uppercase font-semibold text-sm">Username</th>
                             <th class="w-1/6 py-3 px-4 uppercase font-semibold text-sm">Role Name</th>
+                            <th class="w-1/6 py-3 px-4 uppercase font-semibold text-sm">Role Status</th>
                             <th class="w-1/6 py-3 px-4 uppercase font-semibold text-sm">Actions</th>
                         </tr>
 
                         </thead>
                         <tbody class="text-gray-700">
                         <!-- Example Data Row -->
-                        <?php if (!empty($users)){
-                            foreach ($users as $user){?>
+                        <?php if (!empty($Users)){
+                            foreach ($Users as $user){?>
                         <tr class="text-center">
                             <td class="py-3 px-4 text-blue-600">
-                                <?php echo htmlspecialchars($user->userId); ?>
+                                <?php echo htmlspecialchars($user->id_user); ?>
                             </td>
                             <td class="w-1/4 py-3 px-4">
-                                <?php echo htmlspecialchars($user->name); ?>
-                            </td>
-                            <td class="w-1/3 py-3 px-4">
                                 <?php echo htmlspecialchars($user->username); ?>
                             </td>
+                            <td class="w-1/3 py-3 px-4">
+                                <?php echo htmlspecialchars($user->password); ?>
+                            </td>
                              <td class="w-1/3 py-3 px-4">
-                                <?php echo htmlspecialchars($user->role->role_name); ?>
+                                <?php echo htmlspecialchars($user->role->nama_peran); ?>
                             </td>
                             <td class="w-1/6 py-3 px-4">
+                                <?php echo htmlspecialchars($user->role->status_peran?"Active":"Inactive"); ?>
+
+                            </td>
+
+                            <td class="w-1/6 py-3 px-4">
                                 <button class="bg-green-500 hover:bg-green-700 text-white font-bold py-1 px-2 rounded mr-2">
-                                    <a href="MainEntryPoint.php?modul=role&fitur=edit&id=<?php echo htmlspecialchars($user->userId); ?>">
+                                    <a href="index.php?modul=user&fitur=edit&id_user=<?php echo htmlspecialchars($user->id_user); ?>">
                                         Update
                                     </a>
                                 </button>
                                 <button class="bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-2 rounded">
-                                    <a href="MainEntryPoint.php?modul=role&fitur=delete&id=<?php echo htmlspecialchars($user->userId); ?>">
+                                    <a href="index.php?modul=user&fitur=delete&id_user=<?php echo htmlspecialchars($user->id_user); ?>">
                                         Delete
                                     </a>
                                 </button>

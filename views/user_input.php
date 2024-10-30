@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Input User</title>
     <link href="./Views/output.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-gray-100 font-sans leading-normal tracking-normal">
 
@@ -20,8 +21,8 @@
         <div class="flex-1 p-8">
             <!-- Formulir Input Role -->
             <div class="max-w-lg mx-auto bg-white p-6 rounded-lg shadow-lg">
-                <h2 class="text-2xl font-bold mb-6 text-gray-800">Input Role</h2>
-                <form action="MainEntryPoint.php?modul=user&fitur=add" method="POST">
+                <h2 class="text-2xl font-bold mb-6 text-gray-800">Input User</h2>
+                <form action="index.php?modul=user&fitur=add" method="POST">
                     <!-- Nama User -->
                     <div class="mb-4">
                         <label for="role_name" class="block text-gray-700 text-sm font-bold mb-2">Nama User:</label>
@@ -42,12 +43,12 @@
 
                     <!-- Role Status -->
                     <div class="mb-4">
-                        <label for="role_status" class="block text-gray-700 text-sm font-bold mb-2">Role Name</label>
-                        <select id="role_status" name="role_status" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required>
+                        <label for="nama_peran" class="block text-gray-700 text-sm font-bold mb-2">Role Name</label>
+                        <select id="nama_peran" name="nama_peran" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required>
                             <option value="">Pilih Status</option>
-                            <?php foreach ($listRoleName as $rolename){ ?>
-                            <option value=<?php echo htmlspecialchars($rolename)?>>
-                                <?php echo htmlspecialchars($rolename)?>
+                            <?php foreach ($roles as $nama_peran){ ?>
+                            <option value=<?php echo htmlspecialchars($nama_peran->nama_peran)?>>
+                                <?php echo htmlspecialchars($nama_peran->nama_peran)?>
                             </option>
                             <?php } ?>
                         </select>

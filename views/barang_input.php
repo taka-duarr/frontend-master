@@ -21,7 +21,7 @@
             <!-- Formulir Input Role -->
             <div class="max-w-lg mx-auto bg-white p-6 rounded-lg shadow-lg">
                 <h2 class="text-2xl font-bold mb-6 text-gray-800">Input barang</h2>
-                <form action="../response_input_barang.php?modul=role&fitur=add" method="POST">
+                <form action="index.php?modul=barang&fitur=add" method="POST">
                     <!-- Nama Role -->
                     <div class="mb-4">
                         <label for="nama_barang" class="block text-gray-700 text-sm font-bold mb-2">nama barang:</label>
@@ -39,14 +39,14 @@
                         <label for="status_barang" class="block text-gray-700 text-sm font-bold mb-2">status barang:</label>
                         <select id="status_barang" name="status_barang" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required>
                             <option value="">Pilih Status</option>
-                            <option value=1>Active</option>
-                            <option value=0>Inactive</option>
+                            <option value=1>ada</option>
+                            <option value=0>tidak ada</option>
                         </select>
                     </div>
 
                     <div class="mb-4">
-                        <label for="jumlah_barang" class="block text-gray-700 text-sm font-bold mb-2">jumlah barang</label>
-                        <input id="jumlah_barang" name="jumlah_barang" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="masukkan jumlh barang"  required>
+                        <label for="stok_barang" class="block text-gray-700 text-sm font-bold mb-2">stok barang</label>
+                        <input id="stok_barang" name="stok_barang" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="masukkan jumlah barang"  required>
                     </div>
 
                     <!-- Submit Button -->

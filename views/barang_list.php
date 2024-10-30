@@ -23,7 +23,7 @@
             <!-- Button to Insert New Role -->
             <div class="mb-4">
                 <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-                    <a href="views/input_barang.php?modul=role&fitur=add">Insert New barang</a>
+                    <a href="index.php?modul=barang&fitur=input">Insert New barang</a>
                 </button>
             </div>
 
@@ -37,7 +37,7 @@
                         <th class="w-1/4 py-3 px-4 uppercase font-semibold text-sm">NAMA BARANG</th>
                         <th class="w-1/3 py-3 px-4 uppercase font-semibold text-sm">HARGA BARANG</th>
                         <th class="w-1/6 py-3 px-4 uppercase font-semibold text-sm">STATUS BARANG</th>
-                        <th class="w-1/3 py-3 px-4 uppercase font-semibold text-sm">JUMLAH BARANG</th>
+                        <th class="w-1/3 py-3 px-4 uppercase font-semibold text-sm">JUMLAH STOK</th>
                         
                         <th class="w-1/6 py-3 px-4 uppercase font-semibold text-sm">Actions</th>
                     </tr>
@@ -45,21 +45,21 @@
                     </thead>
                     <tbody class="text-gray-700">
                     <!-- Static Data Rows -->
-                    <?php foreach ($obj_barang as $barang){?>
+                    <?php foreach ($Barangs as $barang){?>
                     <tr class="text-center">
                         <td class="py-3 px-4 text-blue-600"><?php echo htmlspecialchars($barang->id_barang) ?></td>
                         <td class="w-1/4 py-3 px-4"><?php echo htmlspecialchars($barang->nama_barang) ?></td>
                         <td class="w-1/4 py-3 px-4"><?php echo htmlspecialchars($barang->harga_barang) ?></td>
-                        <td class="w-1/4 py-3 px-4"><?php echo htmlspecialchars($barang->status_barang)?"Active":"Inactive" ?></td>
-                        <td class="w-1/6 py-3 px-4"><?php echo htmlspecialchars($barang->jumlah_barang) ?></td>
+                        <td class="w-1/4 py-3 px-4"><?php echo htmlspecialchars($barang->status_barang)?"ada":"tidak ada" ?></td>
+                        <td class="w-1/6 py-3 px-4"><?php echo htmlspecialchars($barang->stok_barang) ?></td>
                         
                                 
                         <td class="w-1/6 py-3 px-4">
                             <button class="bg-green-500 hover:bg-green-700 text-white font-bold py-1 px-2 rounded mr-2">
-                                <a href="#">Update</a>
+                                <a href="index.php?modul=barang&fitur=edit&id_barang=<?php echo $barang->id_barang ?>">Update</a>
                             </button>
                             <button class="bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-2 rounded mr-2">
-                                <a href="#">Delete</a>
+                                <a href="index.php?modul=barang&fitur=delete&id_barang=<?php echo $barang->id_barang ?>">Delete</a>
                             </button>
                         </td>
                         <?php } ?>

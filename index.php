@@ -9,7 +9,8 @@
 // include 'views/role_list.php';
 
 // foreach($obj_role as $role){
-//     echo "id role : ".$role->id_peran;
+//     echo "id role : ".$
+// role->id_peran;
 //     echo "<br>";
 //     echo "role name : ".$role->nama_peran;
 //     echo "<br>";
@@ -23,8 +24,9 @@
 // }
 
 require_once 'model/model_role.php';
+require_once 'model/model_user.php';
+require_once 'model/model_barang.php';
 session_start();
-
 
 if (isset($_GET['modul'])) {
     $modul = $_GET['modul'];
@@ -33,6 +35,10 @@ if (isset($_GET['modul'])) {
     $modul = 'dasboard';
 }
 
+$obj_role = new modelRole();
+$obj_user = new modelUser();
+$obj_barang = new modelBarang();
+
 switch ($modul) {
     case 'dasboard':
         include 'views/kosong.php';
@@ -40,7 +46,7 @@ switch ($modul) {
         
         case 'role':
         $fitur = isset($_GET['fitur']) ? $_GET['fitur'] : null;
-        $obj_role = new modelRole();
+        
         switch ($fitur) {
             case 'add':
             $nama_peran = $_POST['nama_peran'];
@@ -81,6 +87,103 @@ switch ($modul) {
             }
             break;
 
+        case 'user':
+            $fitur = isset($_GET['fitur']) ? $_GET['fitur'] : null;
+            switch ($fitur) {
+
+                case 'input':
+                $Users = $obj_user->getUsers();
+                $roles = $obj_role->getRoles();
+                include 'views/user_input.php';
+                break;
+
+                case 'add':
+                $username = $_POST['username'];
+                $password = $_POST['password'];
+                $role = $_POST['nama_peran'];
+                $obj_user->addUser($username, $password, $role);
+                header("Location: index.php?modul=user");
+                break;
+
+                case 'delete':
+                $id_user = $_GET['id_user'];
+                $obj_user->deleteUser($id_user);
+                header("Location: index.php?modul=user");
+                break;
+
+                case 'edit':
+                $id_user = $_GET['id_user'];  
+                
+                $obj_user = $obj_user->getUserById($id_user);
+                $roles = $obj_role->getRoles();
+                include 'views/user_update.php';
+                break;
+
+                case 'update':
+                $id_user = $_POST['id_user'];
+                $username = $_POST['username'];
+                $password = $_POST['password'];
+                $role = $_POST['nama_peran'];
+                $obj_user->updateUser($id_user, $username, $password, $role);
+                header("Location: index.php?modul=user");
+                break;
+
+            
+                default :
+                $Users = $obj_user->getUsers();
+                include 'views/user_list.php';
+
+                break;
+            }
+            break;
+
+
+    case 'barang':
+        $fitur = isset($_GET['fitur']) ? $_GET['fitur'] : null;
+        switch ($fitur) {
+            case 'input':
+            $Barangs = $obj_barang->getBarangs();
+            include 'views/barang_input.php';
+            break;
+            case 'add':
+            $nama_barang = $_POST['nama_barang'];
+            $harga_barang = $_POST['harga_barang'];
+            $status_barang = $_POST['status_barang'];
+            $stok_barang = $_POST['stok_barang'];
+
+            $obj_barang->addBarang($nama_barang, $harga_barang, $status_barang, $stok_barang);
+            header("Location: index.php?modul=barang");
+            break;
+
+            case 'edit':
+            $id_barang = $_GET['id_barang'];
+            $obj_barang = $obj_barang->getBarangById($id_barang);
+            include 'views/barang_update.php';
+            break;
+
+            case 'update':
+            $id_barang = $_POST['id_barang'];
+            $nama_barang = $_POST['nama_barang'];
+            $harga_barang = $_POST['harga_barang'];
+            $status_barang = $_POST['status_barang'];
+            $stok_barang = $_POST['stok_barang'];
+            $obj_barang->updateBarang($id_barang, $nama_barang, $harga_barang, $status_barang, $stok_barang);
+            header("Location: index.php?modul=barang");
+            break;
+
+            case 'delete' :
+            // Ambil id_peran dari parameter GET
+            $id_barang = $_GET['id_barang'];
+            $obj_barang->deleteBarang($id_barang);
+            header("Location: index.php?modul=barang");
+            break;
+            default :
+            $Barangs = $obj_barang->getBarangs();
+            include 'views/barang_list.php';
+            break;
+
+
+        }
             
     }
 ?>
