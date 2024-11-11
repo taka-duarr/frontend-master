@@ -25,7 +25,7 @@
             <!-- Button to Insert New Role -->
             <div class="mb-4">
                 <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-                    <a href="views/role_input.php">Insert New Role</a>
+                    <a href="index.php?modul=role&fitur=input">Insert New Role</a>
                 </button>
                     <!-- notifikasi peringatan -->
 

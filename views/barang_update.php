@@ -23,25 +23,25 @@
             <div class="max-w-lg mx-auto bg-white p-6 rounded-lg shadow-lg">
                 <h2 class="text-2xl font-bold mb-6 text-gray-800">update barang</h2>
                 <form action="index.php?modul=barang&fitur=update" method="POST">
-                    <input type="hidden" id="id_barang" name="id_barang" value="<?php echo htmlspecialchars($obj_barang->id_barang); ?>">
+                    <input type="hidden" id="id_barang" name="id_barang" value="<?php echo htmlspecialchars($barang->id_barang); ?>">
                     <!-- Nama Role -->
                     <div class="mb-4">
                         <label for="nama_barang" class="block text-gray-700 text-sm font-bold mb-2">Nama barang:</label>
-                        <input type="text" id="nama_barang" name="nama_barang" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required value="<?php echo isset($obj_barang->nama_barang) ? htmlspecialchars($obj_barang->nama_barang) : ''; ?>">
+                        <input type="text" id="nama_barang" name="nama_barang" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required value="<?php echo isset($barang->nama_barang) ? htmlspecialchars($barang->nama_barang) : ''; ?>">
                     </div>
 
                     <!-- Role Deskripsi -->
                     <div class="mb-4 text-left">
                         <label for="harga_barang" class="block text-gray-700 text-sm font-bold mb-2">harga barang:</label>
-                        <textarea id="harga_barang" name="harga_barang" class="text-left shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" rows="3" required><?php echo isset($obj_barang->harga_barang) ? htmlspecialchars($obj_barang->harga_barang) : ''; ?></textarea>
+                        <textarea id="harga_barang" name="harga_barang" class="text-left shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" rows="3" required><?php echo isset($barang->harga_barang) ? htmlspecialchars($barang->harga_barang) : ''; ?></textarea>
                     </div>
                     
                     <!-- Role Status -->
                     <div class="mb-4">
                         <label for="status_barang" class="block text-gray-700 text-sm font-bold mb-2">Status Barang:</label>
                         <select id="status_barang" name="status_barang" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required>
-                            <option value="1" <?php echo isset($obj_barang->status_barang) && $obj_barang->status_barang == 1 ? 'selected' : ''; ?>>ada</option>
-                            <option value="0" <?php echo isset($obj_barang->status_barang) && $obj_barang->status_barang == 0 ? 'selected' : ''; ?>>tidak ada</option>
+                            <option value="1" <?php echo isset($barang->status_barang) && $barang->status_barang == 1 ? 'selected' : ''; ?>>ada</option>
+                            <option value="0" <?php echo isset($barang->status_barang) && $barang->status_barang == 0 ? 'selected' : ''; ?>>tidak ada</option>
                         </select>
                     </div>
 
@@ -49,7 +49,7 @@
 
                     <div class="mb-4">
                         <label for="stok_barang" class="block text-gray-700 text-sm font-bold mb-2">stok barang:</label>
-                        <input id="stok_barang" type = "number" name="stok_barang"  class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="Masukkan stok barang"  required value="<?php echo isset($obj_barang->stok_barang) ? htmlspecialchars($obj_barang->stok_barang) : ''; ?>">
+                        <input id="stok_barang" type = "number" name="stok_barang"  class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="Masukkan stok barang"  required value="<?php echo isset($barang->stok_barang) ? htmlspecialchars($barang->stok_barang) : ''; ?>">
                     </div>
                     
                    

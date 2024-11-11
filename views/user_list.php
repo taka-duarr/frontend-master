@@ -35,8 +35,8 @@
 
                         <tr>
                             <th class="w-1/12 py-3 px-4 uppercase font-semibold text-sm">User ID</th>
-                            <th class="w-1/4 py-3 px-4 uppercase font-semibold text-sm">User Name</th>
                             <th class="w-1/3 py-3 px-4 uppercase font-semibold text-sm">Username</th>
+                            <th class="w-1/3 py-3 px-4 uppercase font-semibold text-sm">Password</th>
                             <th class="w-1/6 py-3 px-4 uppercase font-semibold text-sm">Role Name</th>
                             <th class="w-1/6 py-3 px-4 uppercase font-semibold text-sm">Role Status</th>
                             <th class="w-1/6 py-3 px-4 uppercase font-semibold text-sm">Actions</th>

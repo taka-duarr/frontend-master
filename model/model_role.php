@@ -17,7 +17,7 @@
         public function initialiazeDefaultRole(){
             $this->addRole("admin", "administrator", 1,2000);
             $this->addRole("user", "user", 1,5000);
-            $this->addRole("guest", "guest", 1,10000);
+            $this->addRole("customer", "customer", 1,10000);
         }
 
         public function addRole( $nama_peran, $desc_peran, $status_peran, $gaji){

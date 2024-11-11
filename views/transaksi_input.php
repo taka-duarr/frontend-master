@@ -21,7 +21,7 @@
         <div class="flex-1 p-8">
             <!-- Form Transaksi -->
             <h2 class="text-2xl font-bold mb-4">Transaksi Baru</h2>
-            <form action="MainEntryPoint.php?modul=transaksi&fitur=add" method="POST" id="transaksiForm">
+            <form action="index.php?modul=transaksi&fitur=add" method="POST" id="transaksiForm">
                 <div class="mb-4">
                     <label for="customer" class="block text-gray-700">Customer</label>
                     <select id="customer" name="customer" class="mt-1 p-2 border border-gray-300 rounded w-1/3" required>
@@ -33,7 +33,9 @@
 //                        print_r($customers);
                         if (!empty($customers)) {
                             foreach ($customers as $customer) {
-                                echo "<option value='$customer->name'>$customer->name</option>";
+                                if ($customer->role->nama_peran == 'customer') {
+                                echo "<option value='{$customer->id_user}'>{$customer->username}</option>";
+                                }
                             }
                         }
                         ?>
@@ -50,14 +52,18 @@
                                 <select name="barang[]" class="mt-1 p-2 border border-gray-300 rounded w-full" required>
                                     <option value="" disabled selected>Pilih Barang</option>
                                     <?php
+                                    if (!empty($barangs)){
+                                        foreach ($barangs as $barang) {
+                                            echo "<option value='{$barang->id_barang}'>{$barang->nama_barang} - Rp{$barang->harga_barang}</option>";
+                                        }
+                                    }
+                                    
+                                    
 //                                    $barangList = [
 //                                        ['id' => 1, 'name' => 'Barang A', 'harga' => 50000],
 //                                        ['id' => 2, 'name' => 'Barang B', 'harga' => 75000],
 //                                        ['id' => 3, 'name' => 'Barang C', 'harga' => 120000],
 //                                    ];
-                                    foreach ($barangs as $barang) {
-                                        echo "<option value='{$barang->idBarang}'>{$barang->nameBarang} - Rp{$barang->hargaBarang}</option>";
-                                    }
                                     ?>
                                 </select>
                             </div>
