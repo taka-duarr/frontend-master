@@ -18,10 +18,11 @@ class modelUser {
     }
 
     public function initializeDefaultUser() {
-        $this->addUser("firman", 321, "admin");
-        $this->addUser("admin", 445, "admin");
-        $this->addUser("user", 777, "user");
-        $this->addUser("customer", 999, "customer");
+        $this->addUser("firman", "1", "super admin");
+        $this->addUser("taka", "2", "admin");
+        $this->addUser("camellya", "3", "kasir");
+        $this->addUser("hutao", "999", "customer");
+        $this->addUser("ganyu", "999", "customer");
         
     }
 

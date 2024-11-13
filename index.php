@@ -248,17 +248,44 @@
 
 
     
-    session_start();
     
     require_once 'controller/controller_role.php';
     require_once 'controller/controller_user.php';
     require_once 'controller/controller_barang.php';
     require_once 'controller/controller_transaksi.php';
+    require_once 'controller/controller_login.php';
     
-    $modul = isset($_GET['modul']) ? $_GET['modul'] : 'dasboard';
+    
+    session_start();
+
+
+    // index.php
+
 
     
+
+
+
+    if (!isset($_SESSION['username_login']) && (!isset($_GET['modul']) || $_GET['modul'] !== 'login')) {
+        header("Location: index.php?modul=login");
+        exit;
+    }
+    
+    $modul = $_GET['modul'] ?? 'login';
+    
     switch ($modul) {
+
+        case 'login':
+            $LoginController = new LoginController();
+
+    
+            $LoginController->login();
+            break;
+
+        case 'logout':
+            header("Location: index.php");
+            break;
+
         case 'role':
             $controller = new RoleController();
             $fitur = $_GET['fitur'] ?? 'index';

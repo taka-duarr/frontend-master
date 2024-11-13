@@ -48,7 +48,7 @@
                             <tr class="text-center">
                                 <td class="py-3 px-4 text-blue-600"><?php echo htmlspecialchars($transaksi->transaksi_id); ?></td>
                                 <td class="w-1/4 py-3 px-4"><?php echo htmlspecialchars($transaksi->user->username); ?></td>
-                                <td class="w-1/4 py-3 px-4"><?php echo htmlspecialchars($transaksi->user->role->nama_peran); ?></td>
+                                <td class="w-1/4 py-3 px-4"><?= $_SESSION['username_login']->username ?></td>
                                 <td class="py-3 px-4"><?php echo 'Rp' . number_format($transaksi->transaksi_total, 2, ',', '.'); ?></td>
                                 <td class="w-1/6 py-3 px-4">
                                     <button
