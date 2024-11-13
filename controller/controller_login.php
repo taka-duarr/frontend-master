@@ -21,7 +21,13 @@ public function login() {
             $password = $_POST['password'];
 
             foreach ($users as $user) {
-                if ($user->username == $username && $user->password == $password ) {
+                if ($user->username == $username && $user->password == $password) {
+                    if ($user->role->nama_peran == 'customer') {
+                        // Jika role adalah customer, beri pesan error dan batalkan login
+                        $error = "Customer tidak bisa login. Hanya admin atau kasir yang bisa login.";
+                        include 'views/login.php';
+                        return; // Hentikan proses lebih lanjut
+                    }
                     header("Location: index.php?modul=role");
                     $user = $this->userModel->getUserByname($username);
 
@@ -36,7 +42,6 @@ public function login() {
         include 'views/login.php';
     
     }
-    
 
     public function logout() {
         header("Location: index.php?modul=login");

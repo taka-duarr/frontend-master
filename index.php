@@ -255,15 +255,8 @@
     require_once 'controller/controller_transaksi.php';
     require_once 'controller/controller_login.php';
     
-    
     session_start();
-
-
-    // index.php
-
-
     
-
 
 
     if (!isset($_SESSION['username_login']) && (!isset($_GET['modul']) || $_GET['modul'] !== 'login')) {
